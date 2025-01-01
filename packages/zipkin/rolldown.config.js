@@ -1,10 +1,12 @@
 // Copyright 2020 The OpenZipkin Authors; licensed to You under the Apache License, Version 2.0.
 
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
-import {terser} from 'rollup-plugin-terser';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import replace from '@rollup/plugin-replace';
+import { defineConfig } from 'rolldown';
+
 import globals from 'rollup-plugin-node-globals';
 import builtins from 'rollup-plugin-node-builtins';
 
@@ -19,7 +21,7 @@ const basePlugins = [
 
 const external = ['os', 'url'];
 
-export default [
+export default defineConfig([
   // CommonJS
   {
     input: 'src/index.ts',
@@ -77,4 +79,4 @@ export default [
       builtins(),
     ]),
   }
-];
+]);

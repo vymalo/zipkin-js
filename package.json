@@ -3,8 +3,8 @@
   "private": true,
   "license": "Apache-2.0",
   "dependencies": {
-    "@babel/preset-env": "^7.3.3",
-    "eslint-plugin-header": "^3.1.0"
+    "@babel/preset-env": "^7.26.0",
+    "eslint-plugin-header": "^3.1.1"
   },
   "scripts": {
     "install:deps": "lerna exec npm install --no-shrinkwrap",
@@ -24,7 +24,7 @@
     "lerna-build": "lerna run build",
     "lerna-publish": "lerna publish",
     "lerna-publish-ci": "lerna publish prerelease --canary --yes",
-    "postinstall": "yarn lerna-build"
+    "//postinstall": "yarn lerna-build"
   },
   "author": "OpenZipkin <openzipkin.alt@gmail.com>",
   "repository": "https://github.com/openzipkin/zipkin-js",
@@ -34,55 +34,54 @@
     "@babel/polyfill": "^7.3.3",
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.3.3",
-    "@types/chai": "^4.1.7",
-    "@types/express": "^4.17.0",
-    "@types/mocha": "^5.2.5",
-    "browserify": "^16.2.3",
-    "browserslist": "^4.6.3",
-    "caniuse-lite": "^1.0.30000978",
-    "chai": "^3.5.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@tsconfig/node22": "^22.0.0",
+    "@tsconfig/recommended": "^1.0.8",
+    "@types/chai": "^5.0.1",
+    "@types/express": "^5.0.0",
+    "@types/mocha": "^10.0.10",
+    "browserify": "^17.0.1",
+    "browserslist": "latest",
+    "caniuse-lite": "^1.0.30001690",
+    "chai": "^5.1.2",
     "co": "^4.6.0",
-    "co-mocha": "^1.2.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2",
-    "express": "^4.17.0",
-    "husky": "^4.3.0",
-    "karma": "^3.1.3",
-    "karma-browserify": "^6.0.0",
+    "co-mocha": "^1.2.2",
+    "eslint": "^9.17.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.3",
+    "express": "^4.21.2",
+    "husky": "^9.1.7",
+    "karma": "^6.4.4",
+    "karma-browserify": "^8.1.0",
     "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.1.0",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.0.0",
-    "karma-source-map-support": "^1.3.0",
-    "lerna": "^3.16.5",
-    "lint-staged": "^10.5.1",
-    "lolex": "^1.5.1",
-    "mocha": "^5.2.0",
-    "npm-run-all": "^4.1.3",
-    "rollup": "^0.67.4",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-globals": "^1.4.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "rollup-plugin-replace": "^2.1.0",
-    "rollup-plugin-terser": "^3.0.0",
-    "sinon": "^1.17.6",
-    "ts-runtime": "^0.1.35",
-    "tslint": "^5.0.0",
-    "typescript": "^3.7.5",
-    "yarn": "^1.17.2"
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-firefox-launcher": "^2.1.3",
+    "karma-mocha": "^2.0.1",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-source-map-support": "^1.4.0",
+    "lerna": "^8.1.9",
+    "lint-staged": "^15.3.0",
+    "lolex": "^6.0.0",
+    "mocha": "11.0.1",
+    "npm-run-all": "^4.1.5",
+    "rolldown": "1.0.0-beta.1",
+    "sinon": "^19.0.2",
+    "ts-runtime": "^0.3.0",
+    "tslint": "^6",
+    "typescript": "^5.7.2"
   },
   "workspaces": [
     "packages/*"
   ],
   "lint-staged": {
-    "*.js": [
-      "eslint --fix .",
+    "*.{ts,js}": [
+      "//eslint --fix .",
       "git add"
     ]
   },
@@ -90,5 +89,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "packageManager": "yarn@4.5.3"
 }
